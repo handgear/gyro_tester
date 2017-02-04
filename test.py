@@ -16,8 +16,21 @@ while True:
         if read_chars == '\n': #end of one data set
             break;
         data_set.append(read_chars)
+        #remove \r in the end
+        if data_set[len(data_set)-1] == '\r':
+            data_set.pop()
 
-    print "".join(data_set) #print like 0.016   -0.034    1.043
+    data_str = "".join(data_set)
+    # print data_str #print like 0.016   -0.034    1.043
+
+    splited_data = data_str.split(" ")
+    # print splited_data
+
+    #remove empty elements
+    splited_data = list(filter(None, splited_data))
+    print splited_data
+
+
 
 '''
     need to do something with data_set
